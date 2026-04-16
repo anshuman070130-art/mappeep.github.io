@@ -1,49 +1,86 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>mappeep.com</title>
 
   <style>
     body {
-      background: #A9FFF7;
-      color: #82ABA1;
+      background: url("images/BG.png");
+      color: #292F36;
       font-family: Verdana;
     }
 
     table { border-collapse: collapse; }
-
+    center table {
+      box-shadow: 6px 6px 0 #101935;
+    }    
     td {
-      border: 2px solid #82ABA1;
-      background: #B8E1FF;
+      border: 2px solid #292F36;
+      background: #F9EBE0;
       vertical-align: top;
       padding: 12px;
     }
 
+    .sidebar-window {
+      border: 2px solid #292F36;
+      margin-bottom: 15px;
+      background: #F9EBE0;
+      box-shadow: 3px 3px 0 #292F36;
+    }
+
+    .sidebar-title {
+      background: #FF6B6B;
+      color: #F9EBE0;
+      padding: 5px;
+      font-weight: bold;
+      border-bottom: 2px solid #292F36;
+    }
+
+    .sidebar-content {
+      padding: 8px;
+    }
+
     a {
-      color: #E8AEB7;
-      background: #B8E1FF;
-      padding: 2px 6px;
+      display: inline-block;
+      margin: 3px 0;
+      padding: 3px 6px;
+      background: #4ECDC4;
+      color: #292F36;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 3px;
     }
 
     a:hover {
-      background: #94FBAB;
-      color: #82ABA1;
+      background: #FFE66D;
+    }
+
+    .post-box {
+      border-bottom: 2px solid #292F36;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+
+    marquee {
+      background: #4ECDC4;
+      color: #292F36;
+      padding: 5px;
+      border: 2px solid #292F36;
+      font-weight: bold;
     }
 
     .window {
       position: absolute;
       width: 420px;
-      background: #B8E1FF;
-      border: 2px solid #82ABA1;
+      background: #F9EBE0;
+      border: 2px solid #292F36;
       display: none;
       z-index: 10;
+      box-shadow: 4px 4px 0 #292F36;
     }
 
     .titlebar {
-      background: #82ABA1;
-      color: white;
+      background: #FF6B6B;
+      color: #F9EBE0;
       padding: 6px;
       display: flex;
       justify-content: space-between;
@@ -53,28 +90,19 @@
 
     .close {
       cursor: pointer;
-      color: #A9FFF7;
     }
 
     button {
       margin: 5px;
-      background: #94FBAB;
-      color: #82ABA1;
+      background: #4ECDC4;
+      color: #292F36;
       border: none;
       padding: 6px;
       font-weight: bold;
     }
 
-    marquee {
-      background: #B8E1FF;
-      padding: 5px;
-      border: 2px solid #82ABA1;
-    }
-
-    .post-box {
-      border-bottom: 1px solid #82ABA1;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
+    button:hover {
+      background: #FFE66D;
     }
   </style>
 </head>
@@ -83,7 +111,7 @@
 
 <audio id="player"></audio>
 
-<marquee id="marquee">click play to start music</marquee>
+<marquee id="marquee">welcome to mappeep.com</marquee>
 
 <br>
 
@@ -91,32 +119,35 @@
 <table width="80%">
 <tr>
 
-<!-- SIDEBAR -->
 <td width="25%">
 
-<h3><a href="../index.html">mappeep.com</a></h3>
-<p>19 / male<br>music, video games, animes</p>
+  <div class="sidebar-window">
+    <div class="sidebar-title"><a href="../index.html">mappeep.com</a></div>
+    <div class="sidebar-content">
+      19 / male<br>
+      music, video games, animes
+    </div>
+  </div>
 
-<hr>
+  <div class="sidebar-window">
+    <div class="sidebar-title">navigation</div>
+    <div class="sidebar-content">
+      <a href="#" onclick="openWin('postswin')">posts</a><br>
+      <a href="#" onclick="openWin('about')">about me</a><br>
+      <a href="#" onclick="openWin('contact')">contact</a>
+      <a href="#" onclick="openWin('links')">links</a>
+    </div>
+  </div>
 
-<b>navigation</b><br><br>
-<a href="#" onclick="openWin('postswin')">posts</a><br>
-<a href="#" onclick="openWin('about')">about me</a><br>
-<a href="#" onclick="openWin('contact')">contact</a><br>
+  <div class="sidebar-window">
+    <div class="sidebar-title">music</div>
+    <div class="sidebar-content">
+      <p id="nowplaying">no music</p>
+      <button onclick="togglePlay()">⏯️</button>
+      <button onclick="nextSong()">⏭️</button>
+    </div>
+  </div>
 
-<hr>
-
-<b>music</b><br>
-
-<p id="nowplaying">no song</p>
-
-<button onclick="togglePlay()">⏯️</button>
-<button onclick="nextSong()">⏭️</button>
-
-<hr>
-
-<b>status</b>
-<p id="statusText"></p>
 
 </td>
 
@@ -154,12 +185,11 @@
     <span class="close" onclick="closeWin('about')">X</span>
   </div>
   <div style="padding:10px;">
-    Hi! Welcome to the alive internet theory! I believe more people should start blogging! We must not stop the bots from taking over the internet and have more human things on the internet! Let's make internet great again!! (you can drag around this window btw hehe so cool)
-    <img src="" width="100%">
+    Hi! Welcome to the alive internet theory! I believe more people should start blogging! We must stop the bots from taking over the internet and have more human things on the internet! Let's make internet great again!! <br>
+    <img src="images/me.jpg" width="40%">
   </div>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="window" style="top:150px; left:350px;">
   <div class="titlebar">
     <span>contact</span>
@@ -170,30 +200,38 @@
   </div>
 </div>
 
-<!-- POSTS -->
 <div id="postswin" class="window" style="top:120px; left:450px;">
   <div class="titlebar">
     <span>posts</span>
     <span class="close" onclick="closeWin('postswin')">X</span>
   </div>
   <div style="padding:10px;">
-    <h3>categories</h3>
-
-    <a href="blogs/index.html">→ blogs</a><br><br>
+    <a href="index.html">→ blogs</a><br><br>
     <a href="albums.html">→ album reviews</a><br><br>
     <a href="movies.html">→ movie reviews</a><br><br>
     <a href="games.html">→ game reviews</a><br><br>
-    <a href="works.html">→ my works</a><br><br>
+    <a href="works.html">→ my works</a>
+  </div>
+</div>
+
+<div id="links" class="window" style="top:200px; left:400px;">
+  <div class="titlebar">
+    <span>socials</span>
+    <span class="close" onclick="closeWin('links')">X</span>
+  </div>
+  <div style="padding:10px;">
+
+    <a href="https://www.youtube.com/@mappeep" target="_blank">youtube</a><br><br>
+    <a href="https://myanimelist.net/profile/mappeep" target="_blank">my anime list</a><br><br>
+
   </div>
 </div>
 
 <script>
 
-/* WINDOWS */
 function openWin(id){ document.getElementById(id).style.display="block"; }
 function closeWin(id){ document.getElementById(id).style.display="none"; }
 
-/* DRAG */
 document.querySelectorAll(".window").forEach(win => {
   const bar = win.querySelector(".titlebar");
 
@@ -221,85 +259,59 @@ document.querySelectorAll(".window").forEach(win => {
   });
 });
 
-</script>
-<script>
-
-/* MUSIC SYSTEM */
+/* MUSIC */
 const songs = [
-  "No music"
+  "no music found...!"
 ];
 
 let player = document.getElementById("player");
-let marquee = document.getElementById("marquee");
 let nowplaying = document.getElementById("nowplaying");
 
 let currentIndex = 0;
 
-/* set default state */
-marquee.innerText = "no music";
-player.volume = 0.2; // low volume
+player.volume = 0.2;
 
 function loadSong(i){
   currentIndex = i;
   let song = songs[i];
   player.src = song;
-
   let name = song.split("/").pop();
   nowplaying.innerText = name;
 }
 
-/* update marquee based on state */
-function updateMarquee(){
-  if(player.paused){
-    marquee.innerText = "music paused";
-  } else {
-    let name = songs[currentIndex].split("/").pop();
-    marquee.innerText = "now playing: " + name;
-  }
-}
-
-/* play/pause */
 function togglePlay(){
-  if(player.src === ""){
-    loadSong(currentIndex);
-  }
+  if(player.src === "") loadSong(currentIndex);
 
   if(player.paused){
     player.play();
   } else {
     player.pause();
   }
-
-  updateMarquee();
 }
 
-/* next */
 function nextSong(){
   currentIndex = (currentIndex + 1) % songs.length;
   loadSong(currentIndex);
   player.play();
-  updateMarquee();
 }
 
-/* auto update when song ends */
 player.onended = nextSong;
 
-/* try autoplay (may be blocked until user clicks) */
 window.addEventListener("load", () => {
   loadSong(currentIndex);
-  player.play().then(() => {
-    updateMarquee();
-  }).catch(() => {
-    marquee.innerText = "nothing playing";
-  });
 });
 
-/* STATUS */
-function updateStatus(){
+/* STATUS TIME ONLY */
+function updateTime(){
   let time = new Date().toLocaleTimeString();
-  statusText.innerHTML = "time: " + time + "<br>" + nowplaying.innerText;
+
+  let lines = statusText.innerHTML.split("<br>");
+  lines[0] = "time: " + time;
+
+  statusText.innerHTML = lines.join("<br>");
 }
-setInterval(updateStatus,1000);
+
+setInterval(updateTime, 1000);
 
 </script>
 
