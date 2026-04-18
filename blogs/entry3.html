@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mappeep.com</title>
+
+  <style>
+    body {
+      background: url("images/BG.png");
+      color: #292F36;
+      font-family: Verdana;
+    }
+
+    table { border-collapse: collapse; }
+    center table {
+      box-shadow: 6px 6px 0 #101935;
+    }    
+    td {
+      border: 2px solid #292F36;
+      background: #F9EBE0;
+      vertical-align: top;
+      padding: 12px;
+    }
+
+    .sidebar-window {
+      border: 2px solid #292F36;
+      margin-bottom: 15px;
+      background: #F9EBE0;
+      box-shadow: 3px 3px 0 #292F36;
+    }
+
+    .sidebar-title {
+      background: #FF6B6B;
+      color: #F9EBE0;
+      padding: 5px;
+      font-weight: bold;
+      border-bottom: 2px solid #292F36;
+    }
+
+    .sidebar-content {
+      padding: 8px;
+    }
+
+    a {
+      display: inline-block;
+      margin: 3px 0;
+      padding: 3px 6px;
+      background: #4ECDC4;
+      color: #292F36;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      background: #FFE66D;
+    }
+
+    .post-box {
+      border-bottom: 2px solid #292F36;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+
+    marquee {
+      background: #4ECDC4;
+      color: #292F36;
+      padding: 5px;
+      border: 2px solid #292F36;
+      font-weight: bold;
+    }
+
+    .window {
+      position: absolute;
+      width: 420px;
+      background: #F9EBE0;
+      border: 2px solid #292F36;
+      display: none;
+      z-index: 10;
+      box-shadow: 4px 4px 0 #292F36;
+    }
+
+    .titlebar {
+      background: #FF6B6B;
+      color: #F9EBE0;
+      padding: 6px;
+      display: flex;
+      justify-content: space-between;
+      cursor: move;
+      font-weight: bold;
+    }
+
+    .close {
+      cursor: pointer;
+    }
+
+    button {
+      margin: 5px;
+      background: #4ECDC4;
+      color: #292F36;
+      border: none;
+      padding: 6px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #FFE66D;
+    }
+  </style>
+</head>
+
+<body>
+
+<audio id="player"></audio>
+
+<marquee id="marquee">welcome to mappeep.com</marquee>
+
+<br>
+
+<center>
+<table width="80%">
+<tr>
+
+<td width="25%">
+
+  <div class="sidebar-window">
+    <div class="sidebar-title"><a href="../index.html">mappeep.com</a></div>
+    <div class="sidebar-content">
+      19 / male<br>
+      music, video games, animes
+    </div>
+  </div>
+
+  <div class="sidebar-window">
+    <div class="sidebar-title">navigation</div>
+    <div class="sidebar-content">
+      <a href="#" onclick="openWin('postswin')">posts</a><br>
+      <a href="#" onclick="openWin('about')">about me</a><br>
+      <a href="#" onclick="openWin('contact')">contact</a>
+      <a href="#" onclick="openWin('links')">links</a>
+    </div>
+  </div>
+
+  <div class="sidebar-window">
+    <div class="sidebar-title">music</div>
+    <div class="sidebar-content">
+      <p id="nowplaying">no music</p>
+      <button onclick="togglePlay()">⏯️</button>
+      <button onclick="nextSong()">⏭️</button>
+    </div>
+  </div>
+
+
+</td>
+
+<!-- MAIN -->
+<td width="75%">
+
+  <div class="blog-post">
+
+    <h1>the site is finally coming together! [entry#003]</h1>
+    <p class="meta">posted on 4:35am, april 19, 2026</p>
+
+    <hr>
+
+    <p>Heyheyyy internet! My site is finally looking a LOT MORE polished! You can read everything properly without squinting your eyes, no more 404 errors, Added a comment section and I finally got a background image that I think looks really cool. Matches the theme I was going for perfectly. Well, when you can't find something you just have to create is by yourself sometimes you know~! Really proud of what I made XD! <br></p>
+    <img src="../images/BGnoblur.png" width="45%"> <br>
+    <p>There is still so much stuff I wanna do tho. Add stickers and gifs on my homepage, add a music playlist which shuffles and plays songs random songs, but most importantly, finally get a review done! Maybe I can review My hero academia. That was really fun. I didn't use to like shounen super power animes much and was more of a slice of life enjoyer but I really enjoyed MHA. It was generic asf, but it was enjoyable. It's like the perfect show to binge watch when you don't have anything to watch. <br>
+    And now that I have a comment section if anyone is reading this you can also leave your thoughts on my takes and try defending your favorite anime and call me names even tho my taste is superior and I'm never wrong :P But you are free to say whatever you want here! hehehehehehehehehe<br>
+    It was such a hassle to add a comment section tho. As I have mentioned in one of my entries before that I have tried making my own site before multiple times and blogging too but failed. The last time when I failed was while trying to add a comment section only.<br>
+    I tried adding a comment section with HTML but that's a real pain in the ass. You need to self host the comment section which basically means you have to build:- a form (name + comment), a server to recieve it, a database that stores the comments (tho u can use something like google firebase, that's still very annoying to setup and last time I quit cuz of this only), and then a system to display the comments back.<br>
+    A really long process just to get spammed by bots (unless you add some captcha so there's more work for you). But that was a long time ago and since then I've got to know about comment systems like disqus and giscus (the one that I'm using) and these do most of the work for you.<br>
+    All you gotta do is link the source of their client and that's it! Plus they're spam proof so I don't even have to worry about adding captcha as you need to login with your account to comment. At first I wanted to use disqus cuz thats the most popular one and I have seen it in most of the piracy sites which allow you to comment :P But disqus shows ads and even in disqus they are many bot accounts who can comment on your posts as I've seen in some piracy sites before. <br>
+    But in gisqus you can only use your github account unlike disqus where you can use almost anything to login so the chances of getting spammed by bots is even lesser cuz surely google + fb + twitter + microsoft has 10000x more bots than just github.<br>
+    So all I had to do was install the giscus app on my github repo and write a block of javascript code they provide wherever I want my comment section to appear. In this case, ryt after I finish writing the body of this blog. And that's it! I have a comment section on my account now! But a downside about giscus is that not a lotta people have a github account so people might refuse to comment on your post even if they wanted to comment something cuz now they have to create an account on a platform they prolly won't ever use.<br>
+    While in disqus, they have so many ways to sign up and almost everyone on earth surely have an account on atleast one of their provided platforms like google or ms or fb or apple or twitter.<br>
+    Welp, if you were able to find this site I'd guess that you surely are nerdy enough to have a github account and its super rare that some stranger is even gonna end up here and read the blogs. So I don't lose anything anyway :P<br>
+    Anyways, I think I thought go sleep now, it is 4:33am rn and I slept like 3 hours last night cuz of my maths exam. Byeee Zzzz...</p>
+
+    <hr>
+    <h4>> leave something behind...!</h4>
+    <script src="https://giscus.app/client.js"
+            data-repo="anshuman070130-art/mappeep.github.io"
+            data-repo-id="R_kgDOSDSxyg"
+            data-category="Comments"
+            data-category-id="DIC_kwDOSDSxys4C7Ke9"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="0"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="catppuccin_latte"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+    <div class="nav-buttons">
+      <a href="day1.html">← previous</a>
+      <a href="day3.html">next →</a>
+    </div>
+
+  </div>
+
+</td>
+
+</tr>
+</table>
+</center>
+
+<!-- ABOUT -->
+<div id="about" class="window" style="top:100px; left:300px;">
+  <div class="titlebar">
+    <span>about me</span>
+    <span class="close" onclick="closeWin('about')">X</span>
+  </div>
+  <div style="padding:10px;">
+    Hi! Welcome to the alive internet theory! I believe more people should start blogging! We must stop the bots from taking over the internet and have more human things on the internet! Let's make internet great again!! <br>
+    <img src="images/me.jpg" width="40%">
+  </div>
+</div>
+
+<div id="contact" class="window" style="top:150px; left:350px;">
+  <div class="titlebar">
+    <span>contact</span>
+    <span class="close" onclick="closeWin('contact')">X</span>
+  </div>
+  <div style="padding:10px;">
+    email: mappeep123@gmail.com
+  </div>
+</div>
+
+<div id="postswin" class="window" style="top:120px; left:450px;">
+  <div class="titlebar">
+    <span>posts</span>
+    <span class="close" onclick="closeWin('postswin')">X</span>
+  </div>
+  <div style="padding:10px;">
+    <a href="../allposts.html">→ entry log</a><br><br>
+    <a href="albums/index.html">→ album reviews</a><br><br>
+    <a href="blogs/index.html">→ blogs</a><br><br>
+    <a href="games/index.html">→ game reviews</a><br><br>
+    <a href="movies/index.html">→ movie reviews</a><br><br>
+    <a href="works/index.html">→ my works</a>
+  </div>
+</div>
+
+<div id="links" class="window" style="top:200px; left:400px;">
+  <div class="titlebar">
+    <span>socials</span>
+    <span class="close" onclick="closeWin('links')">X</span>
+  </div>
+  <div style="padding:10px;">
+
+    <a href="https://www.youtube.com/@mappeep" target="_blank">youtube</a><br><br>
+    <a href="https://myanimelist.net/profile/mappeep" target="_blank">my anime list</a><br><br>
+
+  </div>
+</div>
+
+<script>
+
+function openWin(id){ document.getElementById(id).style.display="block"; }
+function closeWin(id){ document.getElementById(id).style.display="none"; }
+
+document.querySelectorAll(".window").forEach(win => {
+  const bar = win.querySelector(".titlebar");
+
+  let offsetX = 0, offsetY = 0, isDragging = false;
+
+  bar.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    offsetX = e.clientX - win.offsetLeft;
+    offsetY = e.clientY - win.offsetTop;
+
+    function move(e) {
+      if (!isDragging) return;
+      win.style.left = (e.clientX - offsetX) + "px";
+      win.style.top = (e.clientY - offsetY) + "px";
+    }
+
+    function stop() {
+      isDragging = false;
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseup", stop);
+    }
+
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseup", stop);
+  });
+});
+
+/* MUSIC */
+const songs = [
+  "no music found...!"
+];
+
+let player = document.getElementById("player");
+let nowplaying = document.getElementById("nowplaying");
+
+let currentIndex = 0;
+
+player.volume = 0.2;
+
+function loadSong(i){
+  currentIndex = i;
+  let song = songs[i];
+  player.src = song;
+  let name = song.split("/").pop();
+  nowplaying.innerText = name;
+}
+
+function togglePlay(){
+  if(player.src === "") loadSong(currentIndex);
+
+  if(player.paused){
+    player.play();
+  } else {
+    player.pause();
+  }
+}
+
+function nextSong(){
+  currentIndex = (currentIndex + 1) % songs.length;
+  loadSong(currentIndex);
+  player.play();
+}
+
+player.onended = nextSong;
+
+window.addEventListener("load", () => {
+  loadSong(currentIndex);
+});
+
+/* STATUS TIME ONLY */
+function updateTime(){
+  let time = new Date().toLocaleTimeString();
+
+  let lines = statusText.innerHTML.split("<br>");
+  lines[0] = "time: " + time;
+
+  statusText.innerHTML = lines.join("<br>");
+}
+
+setInterval(updateTime, 1000);
+
+</script>
+
+</body>
+</html>
