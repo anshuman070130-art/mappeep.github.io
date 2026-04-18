@@ -1,0 +1,7 @@
+long time
+
+1. Add all posts section to the posts window.
+2. Find a background image.
+3. Figure out how to add a comment section.
+4. Add stickers and gifs.
+5. Add music.
